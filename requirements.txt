@@ -1,0 +1,6 @@
+# used packages
+numpy
+matplotlib
+
+# testing
+pytest
