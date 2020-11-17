@@ -5,16 +5,19 @@ Tests For Data Manipulation lib
 
 from matplotlib import pyplot as plt
 
-import data_manipulation.make_data as md
+from data_manipulation import make_data as md
 
-x, y = md.linear(100)
-plt.plot(x, y)
-plt.show()
 
-x, y = md.sin(100)
-plt.plot(x, y)
-plt.show()
+def test_linear_basic():
+    x, y = md.linear(100)
+    correct = True
+    if(len(x) != len(y)):
+        correct = False
+    
+    slope = (y[-1] - y[0]) / (x[-1] - x[0])
+    if(slope != 1.0):
+        correct = False
 
-x, y = md.cos(100)
-plt.plot(x, y)
-plt.show()
+    assert correct
+
+test_linear_basic()
