@@ -3,14 +3,13 @@ John Gutierrez
 Tests For Data Manipulation lib
 """
 
-from matplotlib import pyplot as plt
 import numpy as np
-
-import src.DataGeneration.make_data as make
+from matplotlib import pyplot as plt
+from src.make_data import linear, sin, cos
 
 
 def test_linear_basic():
-    x, y = make.linear(100)
+    x, y = linear(100)
     correct = True
     if(len(x) != len(y)):
         correct = False
@@ -22,7 +21,7 @@ def test_linear_basic():
     assert correct
 
 def test_sin_basic():
-    x, y = make.sin(np.pi/2)
+    x, y = sin(np.pi/2)
     correct = True
     if(len(x) != len(y)):
         correct = False
@@ -35,7 +34,7 @@ def test_sin_basic():
     assert correct
 
 def test_cos_basic():
-    x, y = make.cos(np.pi)
+    x, y = cos(np.pi)
     correct = True
     if(len(x) != len(y)):
         correct = False
