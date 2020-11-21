@@ -6,7 +6,7 @@ import numpy as np
 
 
 def linear(length, slope=1.0, y_int=0):
-    x_vals = np.linspace(0, length, num=length*10)
+    x_vals = np.linspace(0, length, num=int(length)*10)
     l = len(x_vals)
     y_vals = np.zeros(l)
     for i in range(l):
@@ -14,8 +14,8 @@ def linear(length, slope=1.0, y_int=0):
     
     return x_vals, y_vals
 
-def sin(duration, amp=1.0, phase=0):
-    x_vals = np.linspace(0, duration, num=duration*10)
+def sin(duration=2*np.pi, amp=1.0, phase=0):
+    x_vals = np.linspace(0.0, duration, num=int(duration)*10)
     l = len(x_vals)
     y_vals = np.zeros(l)
     for i in range(l):
@@ -24,7 +24,8 @@ def sin(duration, amp=1.0, phase=0):
     return x_vals, y_vals
 
 def cos(duration, amp=1.0, phase=0):
-    x_vals = np.linspace(0, duration, num=duration*10)
+    divisions = 10 * duration
+    x_vals = np.linspace(0, duration, num=int(divisions)*10)
     l = len(x_vals)
     y_vals = np.zeros(l)
     for i in range(l):
