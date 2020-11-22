@@ -5,7 +5,7 @@ Tests For Data Manipulation lib
 
 import numpy as np
 from matplotlib import pyplot as plt
-import src.make_data as make
+import src.data_gen.make_data as make
 
 
 def test_linear_basic():
