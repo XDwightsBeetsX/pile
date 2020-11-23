@@ -88,8 +88,8 @@ def test_chi_squared():
     
     # cannot expect 0.0
     try:
-        exp_same = [i for i in range(10)]
-        obs_same = exp_same
+        exp_same = [i for i in range(0, 10)]
+        obs_same = [i for i in range(1, 11)]
         _x2 = make.chi_squared(obs_same, exp_same)
         correct = False 
     except Exception as _e:
