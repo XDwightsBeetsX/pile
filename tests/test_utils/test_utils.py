@@ -1,7 +1,7 @@
 """
 Tests for utils
 """
-from src.utils import utils
+import src.utils.utils as utils
 
 
 def test_split_int():
