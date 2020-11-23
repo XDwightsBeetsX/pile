@@ -6,9 +6,10 @@
 ## Generic code for various purposes that might be useful later
 
 ### Includes
-
+(all in progress :construction_worker:)
 - data generation
-- data operations :construction_worker:
-- data clustering :construction_worker:
-- machine training :construction_worker:
-- more...
+- data structures
+- data operations  
+- data clustering  
+- machine training  
+- more...  
