@@ -1,8 +1,8 @@
 # pile - an accumulation of code
 
-![build-status](https://travis-ci.com/XDwightsBeetsX/pile.svg?branch=main)
-[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
-[![Coverage Status](https://coveralls.io/repos/github/XDwightsBeetsX/pile/badge.svg?branch=master)](https://coveralls.io/github/XDwightsBeetsX/pile?branch=master)
+[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/) 
+![build-status](https://travis-ci.com/XDwightsBeetsX/pile.svg?branch=main) 
+[![Coverage Status](https://coveralls.io/repos/github/XDwightsBeetsX/pile/badge.svg?branch=master)](https://coveralls.io/github/XDwightsBeetsX/pile?branch=master) 
 
 ## Generic code for various purposes that might be useful later
 
