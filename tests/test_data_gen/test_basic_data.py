@@ -4,13 +4,13 @@ Tests For Data Manipulation lib
 
 import numpy as np
 from matplotlib import pyplot as plt
-from src.data_gen import make_data as make
+from src.data_gen import basic_data as basic
 
 
 def test_linear_basic():
     correct = True
 
-    x, y = make.linear(100)
+    x, y = basic.linear(100)
     if(len(x) != len(y)):
         correct = False
     
@@ -23,7 +23,7 @@ def test_linear_basic():
 def test_sin_basic():
     correct = True
 
-    x, y = make.sin(np.pi/2)
+    x, y = basic.sin(np.pi/2)
     if(len(x) != len(y)):
         correct = False
     
@@ -37,7 +37,7 @@ def test_sin_basic():
 def test_cos_basic():
     correct = True
 
-    x, y = make.cos(np.pi)
+    x, y = basic.cos(np.pi)
     if(len(x) != len(y)):
         correct = False
     
