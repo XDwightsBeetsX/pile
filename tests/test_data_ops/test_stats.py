@@ -25,9 +25,8 @@ def test_chi_squared():
         exp_same = [i for i in range(0, 10)]
         obs_same = [i for i in range(1, 11)]
         _x2 = stats.chi_squared(obs_same, exp_same)
-        correct = False 
+        correct = _x2 == None
     except Exception as _e:
-        # should throw bc expect 0.0
         pass
     
     exp_len = 100

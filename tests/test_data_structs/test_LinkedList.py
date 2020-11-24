@@ -1,11 +1,10 @@
 """
 Tests for data_gen/stats
 """
-import numpy as np
 from src.data_structs import LinkedList as LL
 
-# TODO test all methods
 
+# TODO test all methods
 def test_LinkedList_insertLast():
     correct = True
     ll = LL.LinkedList()

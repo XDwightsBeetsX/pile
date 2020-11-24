@@ -3,7 +3,6 @@ Tests For Data Manipulation lib
 """
 
 import numpy as np
-from matplotlib import pyplot as plt
 from src.data_gen import basic_data as basic
 
 
