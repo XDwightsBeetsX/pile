@@ -1,21 +1,26 @@
 # pile - an accumulation of code
 
-[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
-![build-status](https://travis-ci.com/XDwightsBeetsX/pile.svg?branch=main)
-[![Coverage Status](https://coveralls.io/repos/github/XDwightsBeetsX/pile/badge.svg?branch=master)](https://coveralls.io/github/XDwightsBeetsX/pile?branch=master)
+| **Language** | [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/) [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/XDwightsBeetsX/pile.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/XDwightsBeetsX/pile/context:python) |
+|:-:|:--|
+| **Tests** | ![build-status](https://travis-ci.com/XDwightsBeetsX/pile.svg?branch=main) [![Coverage Status](https://coveralls.io/repos/github/XDwightsBeetsX/pile/badge.svg?branch=master)](https://coveralls.io/github/XDwightsBeetsX/pile?branch=master) [![Total alerts](https://img.shields.io/lgtm/alerts/g/XDwightsBeetsX/pile.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/XDwightsBeetsX/pile/alerts/)|
 
-[![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/XDwightsBeetsX/pile.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/XDwightsBeetsX/pile/context:python)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/XDwightsBeetsX/pile.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/XDwightsBeetsX/pile/alerts/)
+## Includes 
 
-## Generic code for various purposes that might be useful later
+### artificial data generation :factory:  
+- interpolation :wrench:  
+- clustering :wrench: 
 
-### Includes
+### data structures :deciduous_tree:  
+- LinkedList  
+- Stack :wrench:  
+- Queue :wrench:  
+- MinHeap:wrench: 
 
-(all in progress :construction_worker:)
+### data operations :chart_with_upwards_trend:  
+- interpolation :wrench:  
+- clustering :wrench:  
+- sorting :wrench:  
+- statistics  
 
-- data generation
-- data structures
-- data operations  
-- data clustering  
-- machine training  
-- more...  
+### utilities :open_file_folder:  
+- small helpers  
