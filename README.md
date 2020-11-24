@@ -1,4 +1,4 @@
-# pile - an accumulation of code :books:  
+# pile - an accumulation of code :books  
 
 | **Language** | [![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-380/) [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/XDwightsBeetsX/pile.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/XDwightsBeetsX/pile/context:python) |
 |:-:|:--|
@@ -6,21 +6,25 @@
 
 ## Includes  
 
-### artificial data generation :factory:  
-- interpolation :wrench:  
-- clustering :wrench: 
+### artificial data generation :factory  
 
-### data structures :deciduous_tree:  
+- interpolation :wrench:  
+- clustering :wrench:
+
+### data structures :deciduous_tree  
+
 - LinkedList  
 - Stack :wrench:  
 - Queue :wrench:  
-- MinHeap:wrench: 
+- MinHeap:wrench:
 
-### data operations :chart_with_upwards_trend:  
+### data operations :chart_with_upwards_trend  
+
 - interpolation :wrench:  
 - clustering :wrench:  
 - sorting :wrench:  
 - statistics  
 
-### utilities :open_file_folder:  
+### utilities :open_file_folder  
+
 - small helpers  
