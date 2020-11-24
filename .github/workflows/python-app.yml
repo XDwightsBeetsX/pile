@@ -43,3 +43,7 @@ jobs:
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        # coveralls installed from requirements.txt
+        coverage run --source=pile -m pytest tests/
+        coveralls
