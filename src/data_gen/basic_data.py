@@ -2,7 +2,6 @@
 File to create artificial data
 """
 import numpy as np
-import time
 
 
 def linear(length, slope=1.0, y_int=0):
