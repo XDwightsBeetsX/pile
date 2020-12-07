@@ -19,7 +19,7 @@ def linear(length, slope=1.0, y_int=0):
 
 
 # TODO unit test
-def linear_noise(length, max_noise=1.0, noise_lvl=1.0, slope=1.0, y_int=0):
+def linear_noise(length, max_noise=10.0, noise_lvl=1.0, slope=1.0, y_int=0):
     """
     Imperfect linear trend from [0, length] with slope & y_int
     
@@ -35,17 +35,19 @@ def linear_noise(length, max_noise=1.0, noise_lvl=1.0, slope=1.0, y_int=0):
         raise Exception("[ERROR]: In linear_noise, noise must be [0, 1.]")
     if noise_lvl == 0.0:
         return linear(length, slope=slope, y_int=y_int)
-
-    x_vals = np.linspace(0.0, length, num=int(length)*10)
-    l = len(x_vals)
+    
+    l = int(length)*10
+    x_vals = np.linspace(0.0, length, num=l)
     y_vals = np.zeros(l)
     
-    norm = normal_dist(center=0, std_dev=noise_lvl, count=l)
+    rand_range = 100
+    norm = normal_dist(center=0, std_dev=noise_lvl, count=rand_range)
     m = max(max(norm), abs(min(norm)))
+    
     for i in range(l):
         y_norm = slope * x_vals[i] + y_int
-        rand = np.random.randint(0, l)
-        y_noise = ((0.0 - norm[rand]) / m) * max_noise
+        rand_i = np.random.randint(0, rand_range)
+        y_noise = (norm[rand_i] / m) * max_noise
         y_vals[i] = y_norm + y_noise
     
     return x_vals, y_vals

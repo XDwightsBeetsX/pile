@@ -55,3 +55,4 @@ def test_normal_dist():
     # TODO implement make.chi_squared
 
     assert correct
+
