@@ -23,7 +23,8 @@
 - interpolation :wrench:  
 - clustering :wrench:  
 - sorting :wrench:  
-- statistics  
+- basic statistics  
+- [kernel density estimation](http://faculty.washington.edu/yenchic/18W_425/Lec6_hist_KDE.pdf) :wrench:  
 
 ### utilities :open_file_folder:  
 
