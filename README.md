@@ -14,15 +14,14 @@
 ### data structures :deciduous_tree:  
 
 - LinkedList  
-- Stack :wrench:  
-- Queue :wrench:  
-- MinHeap:wrench:  
+- Stack  
+- Queue   
 
 ### data operations :chart_with_upwards_trend:  
 
-- interpolation :wrench:  
+- linear interpolation  
 - clustering :wrench:  
-- sorting :wrench:  
+- sorting  
 - basic statistics  
 - [kernel density estimation](http://faculty.washington.edu/yenchic/18W_425/Lec6_hist_KDE.pdf) :wrench:  
 
