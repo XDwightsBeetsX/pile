@@ -13,14 +13,10 @@ class Node(object):
         self.next_node = None
 
 class LinkedList(object):
-    """
-    asdf
-    """
     def __init__(self):
         self.head = None
         self.size = 0
     
-    # TODO test/finish
     def __getitem__(self, index):
         if index < 0 or index > self.size:
             raise Exception(f"[ERROR] cannot acces index {index} in LinkedList with size {self.size}")
@@ -30,9 +26,6 @@ class LinkedList(object):
         return curr
     
     def insertFirst(self, new_data):
-        """
-
-        """
         node = Node(data=new_data)
         if self.head is None:
             self.head = node
@@ -42,9 +35,6 @@ class LinkedList(object):
         self.size += 1
     
     def insertAt(self, new_data, index):
-        """
-
-        """
         if index > self.size:
             raise Exception(f"[ERROR] cannot insert Node at index {index} in LinkedList with size {self.size}")
         elif index == 0:
@@ -61,9 +51,6 @@ class LinkedList(object):
             self.size += 1
     
     def insertLast(self, new_data):
-        """
-
-        """
         node = Node(data=new_data)
         if self.head is None:
             self.head = node
@@ -75,9 +62,6 @@ class LinkedList(object):
         self.size += 1
     
     def remove(self, data_key):
-        """
-
-        """
         if self.size == 0:
             raise Exception("[ERROR] cannot remove() from LinkedList with size 0")
         curr = self.head
@@ -90,9 +74,6 @@ class LinkedList(object):
             raise Exception(f"[ERROR] could not find {data_key} in LinkedList to remove()")
     
     def union(self, linkedlist):
-        """
-
-        """
         if self.size == 0:
             self.head = linkedlist.head
         else:
@@ -101,10 +82,7 @@ class LinkedList(object):
                 curr = curr.next_node
             curr.next_node = linkedlist.head
     
-    def print(self):
-        """
-
-        """
+    def show(self):
         curr = self.head
         print(f"[LL s={self.size}]:", end=" ")
         while curr is not None:
