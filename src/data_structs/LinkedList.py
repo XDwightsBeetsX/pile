@@ -5,9 +5,6 @@ Python implementation of a linked list
 # TODO docstrings
 
 class Node(object):
-    """
-
-    """
     def __init__(self, data=None):
         self.data = data
         self.next_node = None
