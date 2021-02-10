@@ -42,27 +42,54 @@ class Polynomial(object):
             tot += coef*x**p
         return tot
 
-    def integrate(self, lower, upper, n=100, method="riemann right"):
+    def integrate(self, lower, upper, n=10**3, method="simpson"):
+        """
+        Options for integration are:
+        "reimann left", "reimann right", "simpson"
+
+        Default n is 10**3
+        """
+        def riemannLeft(lower, upper, n):
+            step = (upper - lower) / n
+            tot_y = 0
+            for i in range(n):
+                y = self.evaluate(lower + i*step)
+                tot_y += y
+            return tot_y*step
+        
+        def riemannRight(lower, upper, n):
+            step = (upper - lower) / n
+            tot_y = 0
+            for i in range(1, n+1):
+                y = self.evaluate(lower + i*step)
+                tot_y += y
+            return tot_y*step
+        
+        def simpson(lower, upper, n):
+            h = (upper - lower) / n
+            k = 0.0
+            x = lower + h
+            for _ in range(1 , n//2 + 1):
+                k += 4 * self.evaluate(x)
+                x += 2*h
+
+            x = lower + 2*h
+            for _ in range(1, n//2):
+                k += 2*self.evaluate(x)
+                x += 2*h
+            
+            return (h/3)*(self.evaluate(lower) + self.evaluate(upper) + k)
+
+        
         if method == "riemann left":
-            return self.riemannLeft(lower, upper, n)
+            return riemannLeft(lower, upper, n)
         elif method == "riemann right":
-            return self.riemannRight(lower, upper, n)
+            return riemannRight(lower, upper, n)
+        elif method == "simpson":
+            return simpson(lower, upper, n)
+        else:
+            raise Exception(f"[Polynomial.integrate()] - invalid params: {{{lower}, {upper}, {n}, '{method}'}}")
     
-    def riemannLeft(self, lower, upper, n):
-        step = (upper - lower) / n
-        tot_y = 0
-        for i in range(n):
-            y = self.evaluate(lower + i*step)
-            tot_y += y
-        return tot_y*step
-    
-    def riemannRight(self, lower, upper, n):
-        step = (upper - lower) / n
-        tot_y = 0
-        for i in range(1, n+1):
-            y = self.evaluate(lower + i*step)
-            tot_y += y
-        return tot_y*step
 
 p = Polynomial([1, -3, 1, 3])
 p.show()
