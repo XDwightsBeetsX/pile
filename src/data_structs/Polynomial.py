@@ -1,4 +1,4 @@
-
+from matplotlib import pyplot as plt
 
 class Polynomial(object):
     def __init__(self, coefs):
@@ -9,29 +9,37 @@ class Polynomial(object):
         self.Coefs = coefs
         self.Order = len(coefs) - 1
     
-    def show(self):
+    def getEqString(self):
         n = self.Order + 1
+        polyString = ""
         for i in range(n):
             coef = self.Coefs[i]
+            p = self.Order - i
+            s = '+' if coef > 0 else '-'
+
             if coef == 0:
                 continue
-
-            s = '+' if coef > 0 else '-'
-            c = abs(coef)
-            p = self.Order - i
-            if p == n-1:
-                if p == 0:
-                    print(f"{s}{c}")
-                elif p == 1:
-                    print(f"{s}{c}x", end=f" ")
+            elif coef == 1:
+                if p == 1:
+                    polyString += f"{s} x "
                 else:
-                    print(f"{coef}x^{p}", end=f" ")
-            elif p == 1:
-                print(f"{s} {c}x", end=f" ")
-            elif p == 0:
-                print(f"{s} {c}")
+                    polyString += f"x^{p} "
             else:
-                print(f"{s} {c}x^{p}", end=f" ")
+                c = abs(coef)
+                if p == n-1:
+                    if p == 0:
+                        polyString += f"{s}{c} "
+                    elif p == 1:
+                        polyString += f"{s}{c}x "
+                    else:
+                        polyString += f"{coef}x^{p} "
+                elif p == 1:
+                    polyString += f"{s} {c}x "
+                elif p == 0:
+                    polyString += f"{s} {c} "
+                else:
+                    polyString += f"{s} {c}x^{p} "
+        return polyString
     
     def evaluate(self, x):
         n = self.Order + 1
@@ -90,8 +98,28 @@ class Polynomial(object):
         else:
             raise Exception(f"[Polynomial.integrate()] - invalid params: {{{lower}, {upper}, {n}, '{method}'}}")
     
+    def plot(self, lower, upper, n=10**3):
+        step = (upper - lower) / n
+        x_vals = [lower]
+        y_vals = [self.evaluate(lower)]
+
+        x = lower
+        for _ in range(n):
+            x += step
+            x_vals.append(x)
+            y_vals.append(self.evaluate(x))
+        
+        plt.plot(x_vals, y_vals)
+        plt.axhline(y=0, color='k')
+        plt.axvline(x=0, color='k')
+        polyString = self.getEqString()
+        plt.ylabel(polyString)
+        title = f"{polyString} over [{lower}, {upper}]"
+        plt.title(title)
+        plt.show()
 
 p = Polynomial([1, -3, 1, 3])
-p.show()
+print(p.getEqString())
 print(p.evaluate(5))
 print(p.integrate(0, 2))
+p.plot(-1, 5)
