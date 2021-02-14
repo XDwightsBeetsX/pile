@@ -24,6 +24,9 @@ class TerrainMaker(object):
         return Terrain(terrainName, m)
     
     def makePeakTerrain(self, floor=0, ceiling=100, terrainName=""):
+        """
+        Generates a 2-D array of 3-D topographic-style values with a center peak
+        """
         if terrainName == "":
             terrainName = f"peak [{self.Width}, {self.Height}]"
         m = []
@@ -63,11 +66,28 @@ class Terrain(object):
         self.TerrainMatrix = terrainMatrix
         self.Width = len(terrainMatrix[0])
         self.Height = len(terrainMatrix)
+    
+    def getPointForm(self):
+        cols = []
 
-T = TerrainMaker(width=20, height=20)
-randT = T.makeRandomTerrain()
-peakT = T.makePeakTerrain()
+        for i in range(self.Height):
+            for j in range(self.Width):
+                row = []
+                row.append(j)
+                row.append(i)
+                row.append(self.TerrainMatrix[i][j])
+                cols.append(row)
+        
+        return cols
 
-T.writeToCSV(randT, filename="rand")
-T.writeToCSV(peakT, filename="peak")
-
+    def preview(self, numRows=10, numCols=10):
+        r = numRows if numRows < self.Width else self.Width
+        c = numCols if numCols < self.Height else self.Height
+        for i in range(r):
+            print("[", end="")
+            for j in range(c-1):
+                print(round(self.TerrainMatrix[i][j]), end=", ")
+            if i != r-1:
+                print(f"{round(self.TerrainMatrix[i][c])}],\n", end="")
+            else:
+                print(f"{round(self.TerrainMatrix[i][c])}]")
