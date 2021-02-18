@@ -106,7 +106,6 @@ def makeTerrainPlotHtml():
     z=[]
     for i in range(1,n_line):
         split_line=lines[i].split(",")
-        xyz_t=[]
         x.append(float(split_line[0].rstrip()))
         y.append(float(split_line[1].rstrip()))
         z.append(float(split_line[2].rstrip()))
@@ -116,7 +115,7 @@ def makeTerrainPlotHtml():
         return d
 
     #CREATING IDW FUNCTION
-    def idw_npoint(xz,yz,n_point,p):
+    def idw_npoint(xz, yz, n_point, p):
         r=10 #block radius iteration distance
         nf=0
         while nf<=n_point: #will stop when np reaching at least n_point
@@ -187,10 +186,10 @@ def makeTerrainPlotHtml():
         z_head.append(z_idw_list)
 
     # CREATING 3D TERRAIN
-    fig=go.Figure()
+    fig = go.Figure()
     fig.add_trace(go.Surface(z=z_head,x=x_idw_list,y=y_idw_list))
-    fig.update_layout(scene=dict(aspectratio=dict(x=2, y=2, z=0.5),xaxis = dict(range=[x_min,x_max],),yaxis = dict(range=[y_min,y_max])))
-    go_offline.plot(fig,filename='H:\\dev\\pile\\src\\data_gen\\3d_terrain.html',validate=True, auto_open=False)
+    fig.update_layout(scene=dict(aspectratio=dict(x=2, y=2, z=0.5), xaxis=dict(range=[x_min,x_max],), yaxis=dict(range=[y_min, y_max])))
+    go_offline.plot(fig, filename='H:\\dev\\pile\\src\\data_gen\\3d_terrain.html', validate=True, auto_open=False)
 
 
 makeTerrainPlotHtml()
