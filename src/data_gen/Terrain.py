@@ -142,7 +142,6 @@ def makeTerrainPlotHtml():
             if d>0:
                 w=1/(d**p)
                 w_list.append(w)
-                z0=0
             else:
                 w_list.append(0) #if meet this condition, it means d<=0, weight is set to 0
         
