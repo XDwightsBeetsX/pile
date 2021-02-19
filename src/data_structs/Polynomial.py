@@ -4,6 +4,10 @@ class Polynomial(object):
     def __init__(self, coefs):
         if not coefs:
             raise Exception(f"[Polynomial] - cannot create Polynomial() w/o coefs")
+        
+        if coefs[0] == 0.0:
+            raise Exception(f"[Polynomial] - cannot create Polynomial() w/o leading zero coefs")
+
         for c in coefs:
             t = type(c).__name__
             if t != "float" and t != "int":
@@ -12,48 +16,67 @@ class Polynomial(object):
         self.Order = len(coefs) - 1
     
     def getEqString(self):
-        n = self.Order + 1
-        polyString = ""
+        """
+        returns: equation string of a polynomial
 
-        for i in range(n):
+        (assumes no leading 0 coefs)
+        """
+        polyString = ""
+        
+        for i in range(self.Order + 1):
             coef = self.Coefs[i]
+            absCoef = abs(coef)
             p = self.Order - i
             s = '+' if coef > 0 else '-'
 
-            # cover pretty coef cases
-            # 0    -> skip term
-            # 1x^p -> x^p
-            if coef == 0:
-                continue
-            elif coef == 1:
-                if p == 1:
-                    polyString += f"{s} x "
-                else:
-                    polyString += f"x^{p} "
-            # normal coef C
-            else:
-                c = abs(coef)
-                if p == n-1:
-                    # highest order term, keep sign on coef
-                    if p == 0:
-                        # leading constant
-                        if coef > 0:
-                            polyString += f"{c} "
+            # highest order term
+            if p == self.Order:
+                # coefs of 1 ignored
+                if absCoef == 1:
+                    if coef > 0:
+                        if p == 0:
+                            return f"{coef}"
+                        elif p == 1:
+                            polyString += f"x "
                         else:
-                            polyString += f"{s}{c} "
-                    elif p == 1:
-                        # leading linear term
-                        polyString += f"{s}{c}x "
+                            polyString += f"x^{p} "
                     else:
-                        # normal, polynomial case
-                        polyString += f"{coef}x^{p} "
-                elif p == 1:
-                    polyString += f"{s} {c}x "
-                elif p == 0:
-                    polyString += f"{s} {c} "
+                        if p == 0:
+                            return f"{s}{coef}"
+                        elif p == 1:
+                            polyString += f"{s}x "
+                        else:
+                            polyString += f"{s}x^{p} "
+                # show abs(coef) if greater than 1
                 else:
-                    polyString += f"{s} {c}x^{p} "
+                    if p == 0:
+                        return f"{coef}"
+                    elif p == 1:
+                        polyString += f"{coef}x "
+                    else:
+                        polyString += f"{coef}x^{p} "
+            # regular term, incorporate coef sign to operation
+            else:
+                if coef == 0:
+                    continue
+                # coefs of 1 ignored
+                if absCoef == 1:
+                    if p == 0:
+                        polyString += f"{s} {absCoef}"
+                    elif p == 1:
+                        polyString += f"{s} x "
+                    else:
+                        polyString += f"{s} x^{p} "
+                # show abs(coef) if greater than 1
+                else:
+                    if p == 0:
+                        polyString += f"{s} {absCoef}"
+                    elif p == 1:
+                        polyString += f"{s} {absCoef}x "
+                    else:
+                        polyString += f"{s} {absCoef}x^{p} "
 
+        
         return polyString.strip()
     
     def evaluate(self, x):

@@ -53,7 +53,23 @@ def test_poly_getEqString():
     if (p4s != p4s_act):
         print(f"expected: '{p4s_act}'\nbut got:  '{p4s}'")
         correct = False
-
+    
+    coefs5 = [-5, 0]
+    p5 = poly.Polynomial(coefs5)
+    p5s = p5.getEqString()
+    p5s_act = "-5x"
+    if (p5s != p5s_act):
+        print(f"expected: '{p5s_act}'\nbut got:  '{p5s}'")
+        correct = False
+    
+    coefs6 = [-1, 0, 0, 0]
+    p6 = poly.Polynomial(coefs6)
+    p6s = p6.getEqString()
+    p6s_act = "-x^3"
+    if (p6s != p6s_act):
+        print(f"expected: '{p6s_act}'\nbut got:  '{p6s}'")
+        correct = False
+    
     assert correct
 
 
