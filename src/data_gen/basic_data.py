@@ -18,7 +18,6 @@ def linear(length, slope=1.0, y_int=0):
     return x_vals, y_vals
 
 
-# TODO unit test
 def linear_noise(length, max_noise=1.0, noise_lvl=1.0, slope=1.0, y_int=0):
     """
     Imperfect linear trend from [0, length] with slope & y_int
@@ -81,6 +80,6 @@ def cos(duration, amp=1.0, phase=0):
     
     return x_vals, y_vals
 
-# TODO unit test
+
 def normal_dist(center=0.0, std_dev=1.0, count=100):
     return np.random.normal(center, std_dev, count)

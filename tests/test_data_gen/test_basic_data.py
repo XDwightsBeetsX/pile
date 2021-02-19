@@ -23,15 +23,29 @@ def test_linear_basic():
 def test_linear_noise():
     correct = True
 
-    x, y = basic.linear_noise(100)
+    s = 1.0
+    yInt = 3.2
+    x, y = basic.linear_noise(100, slope=s, y_int=yInt)
+    
     ly = len(y)
     lx = len(x)
     if(lx != ly):
         correct = False
+    
+    if (y[0] != yInt):
+        correct = False
 
-    earlyY = sum(y[0:ly//4])
-    lateY = sum(y[(3*ly//4):-1])
-    pass
+    fourth = ly//4
+    earlyY = sum(y[0:fourth])
+    lateY = sum(y[(3*fourth):-1])
+
+    # Check if the slope bw the first fourth and last fourth is about 1.0
+    # within 10% deviation is acceptable
+    s_act = (lateY - earlyY) / (x[fourth//2] - x[(7*fourth//2)])
+    if (abs(s - s_act) > s * .1):
+        correct = False
+    
+    assert correct
 
 
 def test_sin():

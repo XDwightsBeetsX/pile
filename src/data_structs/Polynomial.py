@@ -2,6 +2,8 @@ from matplotlib import pyplot as plt
 
 class Polynomial(object):
     def __init__(self, coefs):
+        if not coefs:
+            raise Exception(f"[Polynomial] - cannot create Polynomial() w/o coefs")
         for c in coefs:
             t = type(c).__name__
             if t != "float" and t != "int":
@@ -12,11 +14,15 @@ class Polynomial(object):
     def getEqString(self):
         n = self.Order + 1
         polyString = ""
+
         for i in range(n):
             coef = self.Coefs[i]
             p = self.Order - i
             s = '+' if coef > 0 else '-'
 
+            # cover pretty coef cases
+            # 0    -> skip term
+            # 1x^p -> x^p
             if coef == 0:
                 continue
             elif coef == 1:
@@ -24,14 +30,22 @@ class Polynomial(object):
                     polyString += f"{s} x "
                 else:
                     polyString += f"x^{p} "
+            # normal coef C
             else:
                 c = abs(coef)
                 if p == n-1:
+                    # highest order term, keep sign on coef
                     if p == 0:
-                        polyString += f"{s}{c} "
+                        # leading constant
+                        if coef > 0:
+                            polyString += f"{c} "
+                        else:
+                            polyString += f"{s}{c} "
                     elif p == 1:
+                        # leading linear term
                         polyString += f"{s}{c}x "
                     else:
+                        # normal, polynomial case
                         polyString += f"{coef}x^{p} "
                 elif p == 1:
                     polyString += f"{s} {c}x "
@@ -39,7 +53,8 @@ class Polynomial(object):
                     polyString += f"{s} {c} "
                 else:
                     polyString += f"{s} {c}x^{p} "
-        return polyString
+
+        return polyString.strip()
     
     def evaluate(self, x):
         n = self.Order + 1
@@ -118,8 +133,3 @@ class Polynomial(object):
         plt.title(title)
         plt.show()
 
-p = Polynomial([1, -3, 1, 3])
-print(p.getEqString())
-print(p.evaluate(5))
-print(p.integrate(0, 2))
-p.plot(-1, 5)
