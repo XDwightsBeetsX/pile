@@ -20,7 +20,7 @@ def linear(length, slope=1.0, y_int=0):
 
 
 def linear_noise(length, max_noise=10.0, noise_lvl=1.0, slope=1.0, y_int=0):
-"""
+    """
     Imperfect linear trend from [0, length] with slope & y_int
     
     max_noise is the noise tolerance desired. Results are based
