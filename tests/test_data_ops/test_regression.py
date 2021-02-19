@@ -5,7 +5,7 @@ from src.data_ops import regression as reg
 from src.data_gen import basic_data as basic
 
 
-def test_linear_regression(displayCheck=True):
+def test_linear_regression(displayCheck=False):
     """
     Testing if the baic.linear_regression() reduced the sum of residuals.
     """

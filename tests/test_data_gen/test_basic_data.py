@@ -29,22 +29,21 @@ def test_linear_noise():
     
     ly = len(y)
     lx = len(x)
-    if(lx != ly):
-        correct = False
-    
-    if (y[0] != yInt):
+    if (lx != ly):
+        print(ly, lx)
         correct = False
 
     fourth = ly//4
-    earlyY = sum(y[0:fourth])
-    lateY = sum(y[(3*fourth):-1])
+    earlyY = sum(y[0:fourth]) / fourth
+    lateY = sum(y[(3*fourth):-1]) / fourth
 
     # Check if the slope bw the first fourth and last fourth is about 1.0
     # within 10% deviation is acceptable
-    s_act = (lateY - earlyY) / (x[fourth//2] - x[(7*fourth//2)])
-    if (abs(s - s_act) > s * .1):
+    s_act = (lateY - earlyY) / (x[(7*fourth//2)] - x[fourth//2])
+    if (abs(s - s_act) > .1):
+        print(f"expected: {s}\nbut got:  {s_act}")
         correct = False
-    
+        
     assert correct
 
 
