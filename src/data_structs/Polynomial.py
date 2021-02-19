@@ -1,4 +1,11 @@
+"""
+Polynomial equation data structure
+Takes in coefs input:
+[1, 2, -3, 4] -> x^3 + 2x^2 -3x + 4
+"""
+
 from matplotlib import pyplot as plt
+
 
 class Polynomial(object):
     def __init__(self, coefs):
