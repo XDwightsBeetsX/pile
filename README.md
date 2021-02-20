@@ -12,4 +12,4 @@ Uses `numpy`, `matplotlib`, and some other common pkgs
 
 ### C++  
 
-Uses MinGW `c++.exe` and `make.exe`  
+Using MinGW `c++.exe` and `make.exe`  
