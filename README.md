@@ -4,27 +4,12 @@
 |:-:|:--|
 | **Tests** | ![build-status](https://travis-ci.com/XDwightsBeetsX/pile.svg?branch=main) [![Total alerts](https://img.shields.io/lgtm/alerts/g/XDwightsBeetsX/pile.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/XDwightsBeetsX/pile/alerts/) ![Coverage Status](https://coveralls.io/repos/github/XDwightsBeetsX/pile/badge.svg?branch=dev-john)|
 
-## Includes  
+Pile is a bunch of code with various uses that may be useful later, and just keeps me up-to-snuff with my code  
 
-### artificial data generation :factory:  
+### Python  
 
-- basic functions  
-- clustering :wrench:
+Uses `numpy`, `matplotlib`, and some other common pkgs  
 
-### data structures :deciduous_tree:  
+### C++  
 
-- LinkedList  
-- Stack  
-- Queue   
-
-### data operations :chart_with_upwards_trend:  
-
-- linear interpolation  
-- clustering :wrench:  
-- sorting  
-- basic statistics  
-- [kernel density estimation](http://faculty.washington.edu/yenchic/18W_425/Lec6_hist_KDE.pdf) :wrench:  
-
-### utilities :open_file_folder:  
-
-- small helpers  
+Uses MinGW `c++.exe` and `make.exe`  
