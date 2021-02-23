@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "xutility": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\Anaconda\\envs\\pile\\python.exe"
 }
