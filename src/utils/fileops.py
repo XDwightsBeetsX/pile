@@ -20,15 +20,17 @@ class FileHandler(object):
             try:
                 old_file = p + '\\' + f
                 f_type = os.path.splitext(f)[1]
-                f_id = old_id_bracket.getId(f)
                 
-                if f_id != "":
-                    new_title = f"{new_id_bracket.Id_Start}{f_id}{new_id_bracket.Id_End}{f_type}"
-                    new_file = p + '\\' + new_title
-                    os.rename(old_file, new_file)
-                    print(f"renamed file {f} -> {new_title}")
-                else:
+                try:
+                    f_id = old_id_bracket.getId(f)
+                except:
                     print(f"Could not find file id: '{f}'")
+                
+                new_title = f"{new_id_bracket.Id_Start}{f_id}{new_id_bracket.Id_End}{f_type}"
+                new_file = p + '\\' + new_title
+                os.rename(old_file, new_file)
+                print(f"renamed file {f} -> {new_title}")
+                
             except:
                 print(f"Unable to rename file: '{f}'")
         
@@ -80,23 +82,23 @@ class IdBracket(object):
         use '' to denote the beginning of the string
         """
         
-        try:
-            si = s.find(self.Id_Start)
-            ei = s.find(self.Id_End)
-            
-            if self.Id_Start > self.Id_End:
-                raise Exception("start index > end index")
-            
-            sl = len(self.Id_Start)
-            if self.Id_Start != "":
-                i = si + sl
-            else:
-                i = sl
-            
-            j = ei
-            return s[i:j]
-        except:
-            return ""
+        # find returns -1 if not found
+        si = s.find(self.Id_Start)
+        ei = s.find(self.Id_End)
+        
+        # check vals
+        if si < ei:
+            if si != -1 and ei != -1:
+                # valid
+                sl = len(self.Id_Start)
+                if self.Id_Start != "":
+                    i = si + sl
+                else:
+                    i = sl
+                j = ei
+                return s[i:j]
+        else:
+            raise Exception(f"Could not find id in {s}")
 
 
 def get_files(path):
@@ -110,7 +112,7 @@ def get_files(path):
 
 
 if __name__ == "__main__":
-    filepath = r"H:\dev\school\2021_Spring\MEEN 364.502 - DYN CONTR - Hasnain\notes\test"
+    filepath = r""
     FH = FileHandler(filepath)
     
     B_old = IdBracket("", "-")
